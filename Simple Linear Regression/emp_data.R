@@ -1,0 +1,23 @@
+Emp_data <- read.csv("E:/ExcelR/R/Simple Linear Regression/SimpleLinearRegressionAssgn/emp_data.csv")
+View(Emp_data)
+summary(Emp_data)
+attach(Emp_data)
+cor(Salary_hike,Churn_out_rate)
+
+Churn_out_rate_model1 <- lm(Churn_out_rate~Salary_hike,data = Emp_data)
+summary(Churn_out_rate_model1)
+confint(Churn_out_rate_model1,level = 0.95)
+predict(Churn_out_rate_model1,interval = "predict")
+plot(Churn_out_rate_model1)
+
+Churn_out_rate_model2 <- lm(Churn_out_rate~log(Salary_hike),data = Emp_data)
+summary(Churn_out_rate_model2)
+confint(Churn_out_rate_model2,level = 0.95)
+predict(Churn_out_rate_model2,interval = "predict")
+plot(Churn_out_rate_model2)
+
+Churn_out_rate_model3 <- lm(log(Churn_out_rate)~log(Salary_hike),data = Emp_data)
+summary(Churn_out_rate_model3)
+confint(Churn_out_rate_model3,level = 0.95)
+predict(Churn_out_rate_model3,interval = "predict")
+plot(Churn_out_rate_model3)

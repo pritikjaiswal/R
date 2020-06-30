@@ -1,0 +1,22 @@
+Salary_hike <- read.csv("E:/ExcelR/R/Simple Linear Regression/SimpleLinearRegressionAssgn/Salary_Data.csv")
+summary(Salary_hike)
+names(Salary_hike)
+attach(Salary_hike)
+
+Salary_hike_model <- lm(Salary~YearsExperience,data = Salary_hike)
+summary(Salary_hike_model)
+confint(Salary_hike_model,level = 0.95)
+predict(Salary_hike_model,interval = "predict")
+plot(Salary_hike_model)
+
+Salary_hike_model1 <- lm(Salary~log(YearsExperience),data = Salary_hike)
+summary(Salary_hike_model1)
+confint(Salary_hike_model1,level = 0.95)
+predict(Salary_hike_model1,interval = "predict")
+plot(Salary_hike_model1)
+
+Salary_hike_model2 <- lm(log(Salary)~YearsExperience,data = Salary_hike)
+summary(Salary_hike_model2)
+confint(Salary_hike_model2,level = 0.95)
+predict(Salary_hike_model2,interval = "predict")
+plot(Salary_hike_model2)
